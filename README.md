@@ -25,7 +25,7 @@ The project is structured into several logical blocks, similar to a modular note
 - Multi-step forecast (t+1 to t+20)
 - Early stopping and training callbacks
 
-➡️ Code: `code/02_model_classic.py` *(WIP)*
+➡️ Code: `code/02_model_classic.py` 
 
 ---
 
@@ -35,7 +35,7 @@ The project is structured into several logical blocks, similar to a modular note
 - Autoregressive decoder structure
 - Comparison with classical model
 
-➡️ Code: `code/03_model_hybrid.py` *(WIP)*
+➡️ Code: `code/03_model_hybrid.py` 
 
 ---
 
@@ -47,17 +47,17 @@ A suite of automated tests evaluates both models under varying conditions:
 - Dropout rates, latent dimensions, input/output lengths
 - Automated heatmap generation and CSV export
 
-➡️ Code: `code/shared/systematic_hyperparameter_test_hybrid.py` *(WIP)*
+➡️ Code: `code/shared/systematic_hyperparameter_test_hybrid.py` 
 
 ### 🧪 Testing Framework
 Both models are tested under different experimental setups:
 
 - **Input/Output length variations** (e.g. 20/5, 60/20, etc.)
-- ➡️ Code: `code/shared/11_input-output-configurations.py` *(WIP)*
+- ➡️ Code: `code/shared/11_input-output-configurations.py` 
 - **Time period robustness** (e.g. crisis vs. calm periods)
-- ➡️ Code: `code/shared/12_time_periods.py` *(WIP)*
+- ➡️ Code: `code/shared/12_time_periods.py` 
 - **Asset class comparisons** (S&P 500, Gold, Bitcoin, VIX)
-- ➡️ Code: `code/shared/13_assets.py` *(WIP)*
+- ➡️ Code: `code/shared/13_assets.py` 
 
 ---
 
