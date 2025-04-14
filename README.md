@@ -70,9 +70,8 @@ Results are saved in:
 
 ## 📘 Academic Context
 
-This repository supports a Bachelor's thesis in economics and data science. The project systematically compares the robustness and generalizability of different encoder-decoder models for forecasting financial time series.
+This repository supports a Bachelor's thesis in economics and data science. The project systematically compares the robustness and generalizability of two different encoder-decoder models (one conventional and one advanceed) for forecasting financial time series.
 
-A final PDF of the thesis will be available after submission under `/thesis/`.
 
 ---
 
