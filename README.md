@@ -15,7 +15,7 @@ The project is structured into several logical blocks, similar to a modular note
 - Dataset loading (S&P 500 via `yfinance`)
 - Sequence creation and data splitting
 
-➡️ Code: `code/model_classic/01_preprocessing.py`
+➡️ Code: `code/01_preprocessing.py`
 
 ---
 
@@ -25,7 +25,7 @@ The project is structured into several logical blocks, similar to a modular note
 - Multi-step forecast (t+1 to t+20)
 - Early stopping and training callbacks
 
-➡️ Code: `code/model_classic/02_model_classic.py` *(WIP)*
+➡️ Code: `code/02_model_classic.py` *(WIP)*
 
 ---
 
@@ -35,7 +35,7 @@ The project is structured into several logical blocks, similar to a modular note
 - Autoregressive decoder structure
 - Comparison with classical model
 
-➡️ Code: `code/model_hybrid/03_model_hybrid.py` *(WIP)*
+➡️ Code: `code/03_model_hybrid.py` *(WIP)*
 
 ---
 
@@ -47,16 +47,17 @@ A suite of automated tests evaluates both models under varying conditions:
 - Dropout rates, latent dimensions, input/output lengths
 - Automated heatmap generation and CSV export
 
-➡️ Code: `code/shared/hyperparameter_search.py` *(WIP)*
+➡️ Code: `code/shared/systematic_hyperparameter_test_hybrid.py` *(WIP)*
 
 ### 🧪 Testing Framework
 Both models are tested under different experimental setups:
 
 - **Input/Output length variations** (e.g. 20/5, 60/20, etc.)
+- ➡️ Code: `code/shared/11_input-output-configurations.py` *(WIP)*
 - **Time period robustness** (e.g. crisis vs. calm periods)
+- ➡️ Code: `code/shared/12_time_periods.py` *(WIP)*
 - **Asset class comparisons** (S&P 500, Gold, Bitcoin, VIX)
-
-➡️ Code: `code/shared/test_runner.py` *(WIP)*
+- ➡️ Code: `code/shared/13_assets.py` *(WIP)*
 
 ---
 
