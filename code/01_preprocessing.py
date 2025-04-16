@@ -136,8 +136,8 @@ def evaluate_by_horizon(predictions, y_test, scaler, output_seq_length):
     return predictions_by_step, actual_by_step
 
 # Konfigurierbare Parameter
-input_seq_length = 60  # Hier ändern für verschiedene Input-Längen (z.B. 20, 60, 90, 120)
-output_seq_length = 20  # Hier ändern für verschiedene Output-Längen (z.B. 5, 10, 20)
+input_seq_length = 20  # Hier ändern für verschiedene Input-Längen (z.B. 20, 60, 90, 120)
+output_seq_length = 5  # Hier ändern für verschiedene Output-Längen (z.B. 5, 10, 20)
 
 # Daten laden
 print("Lade S&P 500 Daten...")
