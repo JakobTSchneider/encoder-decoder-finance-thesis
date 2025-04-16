@@ -92,12 +92,48 @@ def analyze_by_volatility(actual, predicted, volatility_threshold=0.01):
     return high_vol_metrics, low_vol_metrics
 
 def create_sequences(data, input_len, output_len):
-    """Erstellt Input- und Output-Sequenzen für Zeitreihenmodellierung."""
     X, y = [], []
     for i in range(len(data) - input_len - output_len):
         X.append(data[i:i+input_len])
         y.append(data[i+input_len:i+input_len+output_len])
     return np.array(X), np.array(y)
+
+def evaluate_by_horizon(predictions, y_test, scaler, output_seq_length):
+    predictions_by_step = []
+    actual_by_step = []
+    
+    # Für jeden Zeitschritt die Metriken berechnen
+    for step in range(output_seq_length):
+        # Extrahieren der Vorhersagen und tatsächlichen Werte für den aktuellen Zeitschritt
+        step_predictions = predictions[:, step].reshape(-1, 1)
+        step_actual = y_test[:, step].reshape(-1, 1)
+        
+        # Rücktransformation
+        step_predictions_original = scaler.inverse_transform(step_predictions)
+        step_actual_original = scaler.inverse_transform(step_actual)
+        
+        # Speichern für spätere Verwendung
+        predictions_by_step.append(step_predictions_original)
+        actual_by_step.append(step_actual_original)
+        
+        # Metriken berechnen
+        mae = mean_absolute_error(step_actual_original, step_predictions_original)
+        rmse = np.sqrt(mean_squared_error(step_actual_original, step_predictions_original))
+        r2 = r2_score(step_actual_original, step_predictions_original)
+        da = directional_accuracy(step_actual_original, step_predictions_original)
+        
+        # SMAPE berechnen
+        smape = 100 * np.mean(2 * np.abs(step_predictions_original - step_actual_original) /
+                             (np.abs(step_predictions_original) + np.abs(step_actual_original)))
+        
+        print(f"Tag {step+1}:")
+        print(f"  MAE: {mae:.4f}")
+        print(f"  RMSE: {rmse:.4f}")
+        print(f"  SMAPE: {smape:.4f}%")
+        print(f"  R²: {r2:.4f}")
+        print(f"  Direktionale Genauigkeit: {da:.2f}%")
+    
+    return predictions_by_step, actual_by_step
 
 # Konfigurierbare Parameter
 input_seq_length = 60  # Hier ändern für verschiedene Input-Längen (z.B. 20, 60, 90, 120)
@@ -106,7 +142,7 @@ output_seq_length = 20  # Hier ändern für verschiedene Output-Längen (z.B. 5,
 # Daten laden
 print("Lade S&P 500 Daten...")
 end_date = dt.datetime(2024, 4, 1)
-start_date = dt.datetime(2018, 4, 1)
+start_date = dt.datetime(2021, 4, 1)
 data = yf.download("^GSPC", start=start_date, end=end_date)
 print(f"Daten geladen. Form: {data.shape}")
 
