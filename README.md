@@ -3,6 +3,13 @@
 This repository contains the complete code, data preparation, and evaluation framework developed for a Bachelor's thesis focusing on the application of encoder-decoder architectures to financial time series forecasting.
 
 ---
+
+## 📘 Academic Context
+
+This work supports a Bachelor's thesis in economics and data science. The project systematically compares the robustness and generalizability of two different encoder-decoder models (one conventional and one advanceed) for forecasting financial time series.
+
+
+---
 📌 Key Insights
 
 - The classic encoder-decoder model performed more robustly across different input-output combinations, time periods and asset classes.
@@ -73,13 +80,6 @@ Both models are tested under different experimental setups:
 Results are saved in:
 - `results/metrics/` → Performance metrics (MAE, RMSE, R², SMAPE, DA)
 - `results/plots/` → Forecast visualizations and error analysis
-
----
-
-## 📘 Academic Context
-
-This repository supports a Bachelor's thesis in economics and data science. The project systematically compares the robustness and generalizability of two different encoder-decoder models (one conventional and one advanceed) for forecasting financial time series.
-
 
 ---
 
