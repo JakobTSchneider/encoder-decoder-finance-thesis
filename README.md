@@ -3,6 +3,13 @@
 This repository contains the complete code, data preparation, and evaluation framework developed for a Bachelor's thesis focusing on the application of encoder-decoder architectures to financial time series forecasting.
 
 ---
+📌 Key Insights
+
+- The classic encoder-decoder model performed more robustly across different input-output combinations, time periods and asset classes.
+- The hybrid model performed well in volatile market phases and showed a higher tendency to predict the correct directional movement, but was more prone to overfitting.
+- Results highlight trade-offs between model complexity and generalizability.
+
+---
 
 ## 🧱 Model Architecture
 
